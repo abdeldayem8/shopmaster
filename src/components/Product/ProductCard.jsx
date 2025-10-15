@@ -1,7 +1,14 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/cartSlice";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id: product.id, quantity: 1 }));
+  };
   return (
     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
       {/* نغلف الصورة + النص بـ Link */}
@@ -21,6 +28,7 @@ const ProductCard = ({ product }) => {
 
       {/* زرار Add to Cart */}
       <button
+         onClick={handleAddToCart}
         className="mt-4 flex items-center justify-center gap-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
       >
         <AiOutlineShoppingCart size={18} />

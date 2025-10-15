@@ -3,6 +3,7 @@ import MainLayout from "./Layouts/MainLayout"
 import Home from "./pages/Home"
 import Products from "./pages/Products"
 import ProductDetails from "./pages/ProductDetails"
+import CartPage from "./pages/CartPage"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:slug" element={<ProductDetails />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
